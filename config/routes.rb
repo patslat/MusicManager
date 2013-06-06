@@ -3,6 +3,10 @@ Music::Application.routes.draw do
   resources :albums
   resources :tracks
 
+  post '/notes' => 'notes#create'
+  delete '/notes/id' => 'notes#destroy'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

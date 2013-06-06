@@ -11,7 +11,16 @@
     <% else %>
       <li>Regular Track</li>
     <% end %>
-    <li>Lyrics: <%= track.lyrics %>
+    <li>Lyrics: <%= track.lyrics %></li>
+
+    <li>Notes:
+      <ul>
+        <% track.notes.each do |note| %>
+          <li><%= note.body %></li>
+          <%= button_to "Delete Note", { :controller => :notes,
+                :action => "destroy", :id => note.id }, :method => :delete %>
+        <% end %>
+      </ul>
   </ul>
   <%= button_to "delete", { :controller => :tracks,
         :action => 'destroy', :id => track.id }, :method => :delete %>

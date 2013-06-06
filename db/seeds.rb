@@ -15,3 +15,5 @@ Album.create(name: "Blue Train", recording: "Studio", band_id: 1)
 Track.create(name: "Lazy Bird", album_id: 1, bonus: "Regular",
   lyrics: "doo dOOOO da daaaaa doo dOODOOOO dee deee BUM BUM BAA BAA"
 )
+
+Note.create(body: "The lyrics are off", track_id: 1)
