@@ -1,0 +1,25 @@
+<% album = @album %>
+<% action_url = (album.persisted?) ? album_path : albums_path %>
+
+<form action="<%= action_url %>" method="post">
+  <% val = hidden_method ? "put" : "post" %>
+  <input type="hidden" name="_method" value="<% val %>">
+  <label name="album_name">Album Name: </label>
+  <input type="text" name="album[name]" id="album_name">
+
+  <label name="band_name">Band Name: </label>
+  <select name="album[band_id]" id="band_name">
+    <% @bands.each do |band| %>
+      <option value="<%= band.id %>"><%= band.name %></option>
+    <%end%>
+  </select>
+
+  <label name="recording" id="album_recording">
+  <select name="album[recording]" id="album_recording">
+    <option value="studio">Studio</option>
+    <option value="live">Live</option>
+  </select>
+
+  <input type="submit" value="Submit">
+
+</form>
