@@ -10,7 +10,8 @@ class TracksController < ApplicationController
   end
 
   def new
-    @album = Album.new
+    @track = Track.new
+    @albums = Album.all
     render :new
   end
 

@@ -3,7 +3,7 @@
 
 <form action="<%= action_url %>" method="post">
   <% val = hidden_method ? "put" : "post" %>
-  <input type="hidden" name="_method" value="<% val %>">
+  <input name="_method" type="hidden" value="<% val %>">
   <label name="band_name">Band Name: </label>
   <input type="text" name="band[name]" id="band_name">
   <input type="submit" value="Submit">
