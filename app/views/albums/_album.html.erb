@@ -1,3 +1,12 @@
 <ul>
-  <li>Name: <%= album.name %></li>
+  <li>Album Name: <%= album.name %></li>
+  <% band = album.band %>
+  <li>Band Name: <%= link_to band.name, band_path(band) %></li>
+  <li>Tracks:
+    <ol>
+      <% album.tracks.each do |track| %>
+        <li><%= link_to track.name, track_url(track) %></li>
+      <% end %>
+    </ol>
+  </li>
 </ul>

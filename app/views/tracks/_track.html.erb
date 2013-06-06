@@ -1,0 +1,16 @@
+<ul>
+  <li>Name: <%= track.name %></li>
+  <ul>
+    <% album = track.album %>
+    <% band = album.band %>
+    <li>Artist: <%= link_to band.name, band_path(band) %>
+
+    <li>Album: <%= link_to album.name, album_path(album) %></li>
+    <% if track.bonus == "Bonus" %>
+      <li>Bonus Track</li>
+    <% else %>
+      <li>Regular Track</li>
+    <% end %>
+    <li>Lyrics: <%= track.lyrics %>
+  </ul>
+</ul>

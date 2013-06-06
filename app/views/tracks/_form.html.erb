@@ -7,18 +7,23 @@
   <label name="track_name">Track Name: </label>
   <input type="text" name="track[name]" id="track_name">
 
-  <label name="band_name">Band Name: </label>
-  <select name="track[band_id]" id="band_name">
-    <% @bands.each do |band| %>
-      <option value="<%= band.id %>"><%= band.name %></option>
+  <label name="album_name">Album Name: </label>
+  <select name="track[album_id]" id="album_name">
+    <% @albums.each do |album| %>
+      <option value="<%= album.id %>"><%= album.name %></option>
     <%end%>
   </select>
 
-  <label name="recording" id="track_recording">
-  <select name="track[recording]" id="track_recording">
-    <option value="studio">Studio</option>
-    <option value="live">Live</option>
+  <label name="track_bonus" id="track_bonus">Bonus?: </label>
+  <select name="track[bonus]" id="track_bonus">
+    <option value="regular">Regular</option>
+    <option value="bonus">Bonus</option>
   </select>
+
+  <br>
+  <label name="track_lyrics" id="track_lyrics">Lyrics: </label>
+  <br>
+  <textarea name="track[lyrics]" id="track_lyrics"rows="10" cols="50"></textarea>
 
   <input type="submit" value="Submit">
 
