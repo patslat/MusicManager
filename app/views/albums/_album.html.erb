@@ -9,4 +9,7 @@
       <% end %>
     </ol>
   </li>
+
+  <%= button_to "delete", { :controller => :albums,
+          :action => 'destroy', :id => album.id }, :method => :delete %>
 </ul>

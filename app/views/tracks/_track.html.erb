@@ -13,4 +13,6 @@
     <% end %>
     <li>Lyrics: <%= track.lyrics %>
   </ul>
+  <%= button_to "delete", { :controller => :tracks,
+        :action => 'destroy', :id => track.id }, :method => :delete %>
 </ul>
