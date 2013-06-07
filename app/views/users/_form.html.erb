@@ -1,0 +1,15 @@
+<% user = @user %>
+<% action_url = (user.persisted?) ? users_path : users_path %>
+
+<form action="<%= action_url %>" method="post">
+  <% val = hidden_method ? "put" : "post" %>
+  <input name="_method" type="hidden" value="<% val %>">
+
+  <label name="user_email">User Email: </label>
+  <input type="text" name="user[email]" id="user_email">
+
+  <label name="password">User Password: </label>
+  <input type="password" name="password" id="_password">
+
+  <input type="submit" value="Submit">
+</form>

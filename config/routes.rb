@@ -6,6 +6,13 @@ Music::Application.routes.draw do
   post '/notes' => 'notes#create'
   delete '/notes/id' => 'notes#destroy'
 
+  resources :users
+  get '/activate' => 'users#activate'
+
+  get '/login' => 'sessions#new'
+  post '/session' => 'sessions#create'
+  post '/logoff' => 'sessions#destroy'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
