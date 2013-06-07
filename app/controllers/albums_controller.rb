@@ -2,11 +2,13 @@ class AlbumsController < ApplicationController
   def index
     @albums = Album.all
     @bands = Band.all
+    @admin = admin?
     render :index
   end
 
   def show
     @album = Album.find(params[:id])
+    @admin = admin?
     render :show
   end
 
@@ -34,12 +36,12 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    Album.find(params[:id]).update_attributes(params[:album])
+    Album.find(params[:id]).update_attributes(params[:album]) if admin?
     redirect_to album_url
   end
 
   def destroy
-    Album.find(params[:id]).destroy
+    Album.find(params[:id]).destroy if admin?
     redirect_to albums_url
   end
 end

@@ -1,11 +1,14 @@
 class TracksController < ApplicationController
   def index
     @tracks = Track.all
+    @admin = admin?
     render :index
   end
 
   def show
     @track = Track.find(params[:id])
+    @admin = admin?
+    @current_user = current_user
     render :show
   end
 
@@ -31,12 +34,12 @@ class TracksController < ApplicationController
   end
 
   def update
-    Track.find(params[:id]).update_attributes(params[:track])
+    Track.find(params[:id]).update_attributes(params[:track]) if admin?
     redirect_to track_url
   end
 
   def destroy
-    Track.find(params[:id]).destroy
+    Track.find(params[:id]).destroy if admin?
     redirect_to tracks_url
   end
 end

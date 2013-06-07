@@ -1,11 +1,13 @@
 class BandsController < ApplicationController
   def index
     @bands = Band.all
+    @admin = admin?
     render :index
   end
 
   def show
     @band = Band.find(params[:id])
+    @admin = admin?
     render :show
   end
 
@@ -31,12 +33,12 @@ class BandsController < ApplicationController
   end
 
   def update
-    Band.find(params[:id]).update_attributes(params[:band])
+    Band.find(params[:id]).update_attributes(params[:band]) if admin?
     redirect_to band_url
   end
 
   def destroy
-    Band.find(params[:id]).destroy
+    Band.find(params[:id]).destroy if admin?
     redirect_to bands_url
   end
 end
